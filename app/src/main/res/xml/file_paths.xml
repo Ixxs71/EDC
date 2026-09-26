@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Clips de la dashcam (Android/data/<app>/files/Dashcam) : lecture et partage. -->
+    <external-files-path name="dashcam" path="Dashcam/" />
+    <!-- GPX générés, transmis à l'application choisie par l'utilisateur. -->
+    <cache-path name="gpx" path="gpx/" />
+</paths>

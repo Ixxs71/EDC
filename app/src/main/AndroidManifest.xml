@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Position approximative seulement : la recherche de stations interroge avec une précision de
+         l'ordre d'un pâté de maisons et arrondit la position avant tout envoi. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Ni la caméra ni la localisation ne sont indispensables à toute l'app : sans ces déclarations, les
+         magasins et ChromeOS excluraient les appareils qui en sont dépourvus. -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+
+    <!-- Services de premier plan (dashcam) : survivent au changement d'appli, s'arrêtent sur action
+         explicite (bouton ou notification). -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Après un reboot ou une mise à jour, BootReceiver prévient que la dashcam est désarmée
+         (notification de réarmement). -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Module Dashcam : enregistrement vidéo en service de premier plan (écran éteint compris).
+         Contrairement à la localisation, il n'existe aucune permission "arrière-plan" pour la
+         caméra — le module ne peut donc PAS se réarmer seul après reboot (type "camera" explicitement
+         interdit au démarrage depuis BOOT_COMPLETED, voir CLAUDE.md) : notification à toucher. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+
+    <application
+        android:name=".EdcApplication"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Edc">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".StationListActivity"
+            android:exported="false"
+            android:label="@string/title_station_list" />
+
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false"
+            android:label="@string/title_about" />
+
+        <activity
+            android:name=".DashcamVideosActivity"
+            android:exported="false"
+            android:label="@string/title_dashcam_videos" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <service
+            android:name=".DashcamService"
+            android:exported="false"
+            android:foregroundServiceType="camera" />
+
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

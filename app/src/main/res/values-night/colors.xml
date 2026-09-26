@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Palette sombre — recommandations Material Design :
+      - Fond #121212 (jamais noir pur, référence canonique Material dark theme).
+      - Surfaces (cartes) légèrement plus claires que le fond pour simuler l'élévation.
+      - Texte à ~87% blanc (haute emphase) / ~60% blanc (emphase moyenne), pas de blanc pur
+        (réduit l'éblouissement/halo sur fond sombre).
+      - Accents (best_accent, brand_accent) éclaircis pour rester lisibles sans vibrer sur fond
+        sombre ; brand_primary reste identique (grande surface de couleur pleine, pas un accent
+        ponctuel — la règle "éclaircir en sombre" s'applique surtout aux petits accents/texte).
+    -->
+    <color name="brand_primary">#1B5E20</color>
+    <color name="brand_primary_variant">#66BB6A</color>
+    <color name="brand_primary_dark">#0B1F0D</color>
+    <color name="brand_accent">#FFCA28</color>
+    <color name="brand_bg">#121212</color>
+    <color name="card_bg">#1E1E1E</color>
+    <color name="text_primary">#E6E6E6</color>
+    <color name="text_muted">#A0A0A0</color>
+    <color name="stale_bg">#4A3A1A</color>
+    <color name="best_accent">#66BB6A</color>
+    <color name="header_text">#FFFFFF</color>
+</resources>

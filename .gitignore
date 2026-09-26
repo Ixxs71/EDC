@@ -1,0 +1,29 @@
+# Build
+/build/
+/app/build/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Configuration locale (chemin du SDK propre à chaque machine)
+local.properties
+
+# Gradle / Kotlin
+.gradle/
+.kotlin/
+gradle-app.setting
+
+# Clés de signature : ne jamais les versionner
+*.jks
+*.keystore
+keystore.properties
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+hs_err_pid*.log
+replay_pid*.log

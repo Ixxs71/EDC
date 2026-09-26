@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      DayNight : bascule automatiquement clair/sombre selon le réglage système (voir
+      values-night/colors.xml pour la palette sombre). Le bug initial ("texte invisible en
+      mode sombre") venait de couleurs custom fixes sans contrepartie values-night, pas du
+      principe DayNight lui-même — corrigé en donnant une vraie valeur nuit à chaque couleur.
+    -->
+    <style name="Theme.Edc" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand_primary_variant</item>
+        <item name="colorPrimaryDark">@color/brand_primary_dark</item>
+        <item name="colorAccent">@color/brand_accent</item>
+        <item name="android:windowBackground">@color/brand_bg</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:editTextColor">@color/text_primary</item>
+    </style>
+
+    <style name="SectionTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/brand_primary_variant</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="FieldLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_muted</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="AboutBody">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+</resources>
