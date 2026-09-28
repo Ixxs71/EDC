@@ -13,6 +13,12 @@ calcul qu'EDC fait pour vous, sur toutes les stations autour de votre position.
 **[⬇ Télécharger la dernière version](https://github.com/Ixxs71/EDC/releases/latest)** — APK, hors Google
 Play, licence GPL-3.0-or-later.
 
+## 📱 Aperçu
+
+<p>
+<img src="docs/screenshots/essence.png" width="200" alt="Recherche de stations, onglet Essence"> <img src="docs/screenshots/dashcam.png" width="200" alt="Onglet Dash cam"> <img src="docs/screenshots/videos.png" width="200" alt="Liste des vidéos, menu d'un clip"> <img src="docs/screenshots/privacy.png" width="200" alt="Écran À propos, vie privée">
+</p>
+
 ## ⛽ Essence — le coût réel du plein
 
 Cherche les stations-service autour de votre position pour un carburant donné (GPLc, gazole, SP95, SP98,
