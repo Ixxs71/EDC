@@ -16,7 +16,7 @@ Play, licence GPL-3.0-or-later.
 ## 📱 Aperçu
 
 <p>
-<img src="docs/screenshots/essence.png" width="200" alt="Recherche de stations, onglet Essence"> <img src="docs/screenshots/dashcam.png" width="200" alt="Onglet Dash cam"> <img src="docs/screenshots/videos.png" width="200" alt="Liste des vidéos, menu d'un clip"> <img src="docs/screenshots/privacy.png" width="200" alt="Écran À propos, vie privée">
+<img src="docs/screenshots/essence.png" width="200" alt="Recherche de stations, onglet Essence"> <img src="docs/screenshots/stations.png" width="200" alt="Classement par coût réel, meilleur choix et prix périmé"> <img src="docs/screenshots/dashcam.png" width="200" alt="Onglet Dash cam"> <img src="docs/screenshots/videos.png" width="200" alt="Liste des vidéos, menu d'un clip"> <img src="docs/screenshots/privacy.png" width="200" alt="Écran À propos, vie privée">
 </p>
 
 ## ⛽ Essence — le coût réel du plein
@@ -26,7 +26,8 @@ E10, E85) et les classe par **coût réel** : prix affiché plus carburant brûl
 réparti sur la quantité que vous comptez acheter. Signale les prix dont la mise à jour est ancienne. Les
 distances par la route sont estimées sur le téléphone (ligne droite × 1,3) ou, si vous indiquez l'adresse
 d'un serveur OSRM, calculées par ce serveur. Crée un fichier GPX que vous ouvrez avec l'application de
-cartes de votre choix, ou affiche la liste et ouvre la navigation vers une station.
+cartes de votre choix, ou affiche la liste des stations : un tap sur une station ouvre votre application de
+cartes centrée dessus, prête à lancer l'itinéraire.
 
 ## 📷 Dash cam — enregistrement en boucle
 
