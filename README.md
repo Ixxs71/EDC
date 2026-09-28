@@ -1,40 +1,40 @@
 # EDC — Essence + Dash cam
 
 Application Android gratuite et libre (GPL-3.0-or-later), sans publicité, sans compte et sans pistage.
-Version 0.1 — Android 8.0 et plus.
+Version 0.1 — Android 8.0 et plus (testée à ce jour sur un Samsung Galaxy S22+, Android 16 ;
+les versions plus anciennes d'Android n'ont pas encore été essayées).
 
-## Ce que fait l'app
+**La station qui affiche le prix le plus bas n'est pas toujours la moins chère.** Exemple, pour une
+consommation de 7 L/100 km et un plein de 50 L : une station à 1,789 €/L à 8 km, une autre à 1,799 €/L à
+2 km seulement. Une fois le carburant brûlé pour le détour compté, la première revient à 1,829 €/L
+réellement dépensés, la seconde à 1,809 €/L — moins chère malgré son prix affiché plus élevé. C'est ce
+calcul qu'EDC fait pour vous, sur toutes les stations autour de votre position.
 
-**Essence.** Cherche les stations-service autour de votre position pour un carburant donné (GPLc, gazole,
-SP95, SP98, E10, E85) et les classe par **coût réel** : prix affiché plus carburant brûlé pour le détour
-aller-retour, réparti sur la quantité que vous comptez acheter. Signale les prix dont la mise à jour est
-ancienne. Les distances par la route sont estimées sur le téléphone (ligne droite × 1,3) ou, si vous
-indiquez l'adresse d'un serveur OSRM, calculées par ce serveur. Crée un fichier GPX que vous ouvrez avec
-l'application de cartes de votre choix, ou affiche la liste et ouvre la navigation vers une station.
+**[⬇ Télécharger la dernière version](https://github.com/Ixxs71/EDC/releases/latest)** — APK, hors Google
+Play, licence GPL-3.0-or-later.
 
-**Dash cam.** Enregistre la route avec la caméra arrière, sans son, en clips de durée fixe. Les clips les
-plus anciens sont supprimés dès que le plafond d'espace choisi est atteint. L'écran affiche le temps
-d'enregistrement avant écrasement pour vos réglages. Démarrage manuel, ou automatique à la connexion
-d'Android Auto. Une liste intégrée montre les clips du plus récent au plus ancien.
+## ⛽ Essence — le coût réel du plein
 
-## Installation
+Cherche les stations-service autour de votre position pour un carburant donné (GPLc, gazole, SP95, SP98,
+E10, E85) et les classe par **coût réel** : prix affiché plus carburant brûlé pour le détour aller-retour,
+réparti sur la quantité que vous comptez acheter. Signale les prix dont la mise à jour est ancienne. Les
+distances par la route sont estimées sur le téléphone (ligne droite × 1,3) ou, si vous indiquez l'adresse
+d'un serveur OSRM, calculées par ce serveur. Crée un fichier GPX que vous ouvrez avec l'application de
+cartes de votre choix, ou affiche la liste et ouvre la navigation vers une station.
 
-Téléchargez l'APK depuis la page « Releases » de ce dépôt et autorisez l'installation depuis cette source.
-Les mises à jour peuvent être suivies avec [Obtainium](https://github.com/ImranR98/Obtainium).
+## 📷 Dash cam — enregistrement en boucle
 
-## Permissions
+Enregistre la route avec la caméra arrière, sans son, en clips de durée fixe. Les clips les plus anciens
+sont supprimés dès que le plafond d'espace choisi est atteint ; un clip peut être protégé pour ne jamais
+être écrasé. L'écran affiche le temps d'enregistrement restant avant écrasement pour vos réglages.
+L'enregistrement se met en pause si le téléphone chauffe trop, et reprend au refroidissement. Démarrage
+manuel, ou automatique à la connexion d'Android Auto. Une liste intégrée montre les clips du plus récent
+au plus ancien, avec lecture et envoi vers une autre application.
 
-| Permission | Pourquoi |
-|---|---|
-| Localisation (approximative) | Trouver les stations autour de vous. La position précise n'est pas demandée. |
-| Caméra | Dash cam. Aucun micro n'est demandé. |
-| Notifications | Statut de l'enregistrement, et notification « Dashcam désarmée » après un redémarrage ou une mise à jour. Demandée au démarrage de la dashcam ; sans elle, ces notifications ne s'affichent pas. |
-| Réception du démarrage | Prévenir que la dashcam doit être relancée après un redémarrage ou une mise à jour. |
-| Service de premier plan (caméra), Internet, état du réseau | Enregistrer avec l'écran éteint ; interroger les données ci-dessous. |
+## 🔒 Vie privée
 
-## Vie privée
+**Pas de compte, pas de publicité, pas de statistiques, pas de rapport de plantage envoyé.** Le détail :
 
-- Pas de compte, de publicité, de statistiques ni de rapport de plantage envoyé.
 - Les vidéos restent sur le téléphone. Aucun son n'est enregistré.
 - La recherche de stations envoie votre position **arrondie à environ 110 m** à `data.economie.gouv.fr`
   (rayon autour de vous).
@@ -47,6 +47,24 @@ Les mises à jour peuvent être suivies avec [Obtainium](https://github.com/Imra
   embarquée. Selon votre téléphone et vos réglages, ce service peut s'appuyer sur des services Google.
 - Un journal local (`events.log` : démarrages et arrêts de la dashcam, fournisseur de localisation utilisé)
   reste dans le stockage privé de l'app et n'est jamais envoyé. Il ne contient aucune position.
+
+## Installation
+
+1. Téléchargez l'APK sur la page [Releases](https://github.com/Ixxs71/EDC/releases/latest).
+2. Ouvrez le fichier téléchargé et autorisez l'installation depuis cette source quand Android le demande
+   (l'app n'est pas distribuée via Google Play).
+3. Facultatif : suivez le dépôt avec [Obtainium](https://github.com/ImranR98/Obtainium) pour être prévenu
+   des nouvelles versions.
+
+## Permissions
+
+| Permission | Pourquoi |
+|---|---|
+| Localisation (approximative) | Trouver les stations autour de vous. La position précise n'est pas demandée. |
+| Caméra | Dash cam. Aucun micro n'est demandé. |
+| Notifications | Statut de l'enregistrement, et notification « Dashcam désarmée » après un redémarrage ou une mise à jour. Demandée au démarrage de la dashcam ; sans elle, ces notifications ne s'affichent pas. |
+| Réception du démarrage | Prévenir que la dashcam doit être relancée après un redémarrage ou une mise à jour. |
+| Service de premier plan (caméra), Internet, état du réseau | Enregistrer avec l'écran éteint ; interroger les données ci-dessous. |
 
 ## Sources de données et licences
 
@@ -71,9 +89,9 @@ JDK 17 ou plus, Android SDK (compileSdk 36).
 
 GPL-3.0-or-later, voir [LICENSE](LICENSE). Chaque fichier source porte son identifiant SPDX.
 
-## Soutenir le projet
+## ❤️ Soutenir le projet
 
-EDC est gratuit. Si l'app vous est utile, vous pouvez laisser un pourboire via [GitHub Sponsors](https://github.com/sponsors/Ixxs71). Aucun paiement ne passe par l'app.
+EDC est développé bénévolement, sur mon temps libre, et reste gratuit, sans publicité et sans compte. Si vous l'utilisez régulièrement et voulez aider à le faire durer, un pourboire — quelques euros — via [GitHub Sponsors](https://github.com/sponsors/Ixxs71) est bienvenu, jamais obligatoire. Aucun paiement ne passe par l'app.
 
 ## Signaler un problème
 
