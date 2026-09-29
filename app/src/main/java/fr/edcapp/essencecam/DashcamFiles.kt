@@ -27,6 +27,22 @@ object DashcamFiles {
     fun clips(dir: File): List<File> = dir.listFiles()?.filter { isClip(it) } ?: emptyList()
 }
 
+/** Calculs de l'estimation « temps avant écrasement » de l'onglet Dash cam. */
+object DashcamMath {
+    /** Secondes d'enregistrement qui tiennent dans [capGb] Go au débit [bitsPerSecond] ; null si l'un est invalide. */
+    fun retentionSeconds(capGb: Int, bitsPerSecond: Long): Long? {
+        if (capGb <= 0 || bitsPerSecond <= 0) return null
+        return capGb.toLong() * 1_000_000_000L * 8 / bitsPerSecond
+    }
+
+    /** "1 h 2 min" ou "45 min". */
+    fun formatDuration(totalSeconds: Long): String {
+        val hours = totalSeconds / 3600
+        val minutes = (totalSeconds % 3600) / 60
+        return if (hours > 0) "$hours h $minutes min" else "$minutes min"
+    }
+}
+
 /** Un clip vu par le plan de stockage : nom, taille, protégé ou non. */
 data class ClipInfo(val name: String, val size: Long, val isProtected: Boolean)
 

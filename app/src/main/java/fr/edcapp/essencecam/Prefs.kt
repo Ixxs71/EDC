@@ -22,6 +22,8 @@ object Prefs {
     private const val KEY_DASHCAM_ARMED = "dashcam_armed"
     private const val KEY_DASHCAM_PROTECTED = "dashcam_protected_clips"
     private const val KEY_ROUTING_SERVER = "routing_server"
+    private const val KEY_VIGILANCE_AUTO_AA = "vigilance_auto_aa"
+    private const val KEY_VIGILANCE_SOUND = "vigilance_sound_enabled"
 
     private const val DEFAULT_CONSO = 10.0f
     private const val DEFAULT_QUANTITE = 40.0f
@@ -169,6 +171,28 @@ object Prefs {
         context.getSharedPreferences(FILE, Context.MODE_PRIVATE)
             .edit()
             .putBoolean(KEY_DASHCAM_ARMED, value)
+            .apply()
+    }
+
+    /** Zone de vigilance : démarre/arrête selon la connexion Android Auto. */
+    fun getVigilanceAutoAA(context: Context): Boolean =
+        context.getSharedPreferences(FILE, Context.MODE_PRIVATE).getBoolean(KEY_VIGILANCE_AUTO_AA, false)
+
+    fun setVigilanceAutoAA(context: Context, value: Boolean) {
+        context.getSharedPreferences(FILE, Context.MODE_PRIVATE)
+            .edit()
+            .putBoolean(KEY_VIGILANCE_AUTO_AA, value)
+            .apply()
+    }
+
+    /** Alerte sonore de la zone de vigilance, activée par défaut. */
+    fun getVigilanceSoundEnabled(context: Context): Boolean =
+        context.getSharedPreferences(FILE, Context.MODE_PRIVATE).getBoolean(KEY_VIGILANCE_SOUND, true)
+
+    fun setVigilanceSoundEnabled(context: Context, value: Boolean) {
+        context.getSharedPreferences(FILE, Context.MODE_PRIVATE)
+            .edit()
+            .putBoolean(KEY_VIGILANCE_SOUND, value)
             .apply()
     }
 }

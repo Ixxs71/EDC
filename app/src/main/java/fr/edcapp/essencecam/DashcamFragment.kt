@@ -185,12 +185,9 @@ class DashcamFragment : Fragment(R.layout.fragment_dashcam) {
             retentionInfo.text = ""
             return
         }
-        val capBits = capGb.toLong() * 1_000_000_000L * 8
-        val totalSeconds = capBits / bitsPerSecond
-        val hours = totalSeconds / 3600
-        val minutes = (totalSeconds % 3600) / 60
-        val duree = if (hours > 0) "${hours} h ${minutes} min" else "${minutes} min"
-        retentionInfo.text = getString(R.string.status_retention_estimate, duree)
+        val totalSeconds = DashcamMath.retentionSeconds(capGb, bitsPerSecond)
+        retentionInfo.text = if (totalSeconds == null) "" else
+            getString(R.string.status_retention_estimate, DashcamMath.formatDuration(totalSeconds))
     }
 
     /** Valide et enregistre qualité/durée de clip/plafond depuis les champs. Retourne false si invalide. */

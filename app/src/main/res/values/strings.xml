@@ -3,6 +3,7 @@
     <string name="app_name">EDC</string>
     <string name="tab_essence">Essence</string>
     <string name="tab_dashcam">Dash cam</string>
+    <string name="tab_vigilance">Vigilance</string>
     <string name="section_search">Recherche</string>
     <string name="section_vehicle">Véhicule</string>
     <string name="label_fuel">Carburant</string>
@@ -60,9 +61,9 @@
     <string name="about_title_license">Licence</string>
     <string name="about_body_license">EDC est un logiciel libre, publié sous licence GPL-3.0-or-later : vous pouvez l\'utiliser, l\'étudier, le modifier et le redistribuer selon les termes de cette licence. Le texte complet et le code source se trouvent dans le dépôt du projet.</string>
     <string name="about_title_privacy">Vie privée</string>
-    <string name="about_body_privacy">• Aucun compte, aucune publicité, aucune statistique, aucun rapport de plantage envoyé.\n• Les vidéos de la dash cam restent sur votre téléphone. Aucun son n\'est enregistré.\n• Pour chercher des stations, l\'app envoie votre position arrondie à environ 110 m à data.economie.gouv.fr (ministère de l\'Économie).\n• Si vous indiquez un serveur de routage, votre position arrondie et celle des stations lui sont envoyées pour calculer les distances par la route. Sans serveur, les distances sont estimées sur le téléphone (ligne droite × 1,3) et rien n\'est envoyé.\n• La liste des enseignes est téléchargée sur data.gouv.fr, sans votre position.\n• Votre position est obtenue par le service de localisation d\'Android. Selon votre téléphone et vos réglages, ce service peut s\'appuyer sur des services Google.</string>
+    <string name="about_body_privacy">• Aucun compte, aucune publicité, aucune statistique, aucun rapport de plantage envoyé.\n• Les vidéos de la dash cam restent sur votre téléphone. Aucun son n\'est enregistré.\n• Pour chercher des stations, l\'app envoie votre position arrondie à environ 110 m à data.economie.gouv.fr (ministère de l\'Économie).\n• Si vous indiquez un serveur de routage, votre position arrondie et celle des stations lui sont envoyées pour calculer les distances par la route. Sans serveur, les distances sont estimées sur le téléphone (ligne droite × 1,3) et rien n\'est envoyé.\n• La liste des enseignes est téléchargée sur data.gouv.fr, sans votre position.\n• Pendant que l\'onglet Vigilance tourne, votre position arrondie est envoyée de temps en temps (au plus toutes les 2 minutes, ou si vous avez bougé de plus d\'1 km) au service de géocodage de l\'IGN (data.geopf.fr), uniquement pour resserrer la zone signalée en agglomération. Aucune adresse ni aucun résultat ne vous est montré.\n• Votre position est obtenue par le service de localisation d\'Android. Selon votre téléphone et vos réglages, ce service peut s\'appuyer sur des services Google.</string>
     <string name="about_title_data">Données et attributions</string>
-    <string name="about_body_data">• Prix des carburants : DGCCRF, publiés sur data.economie.gouv.fr sous Licence Ouverte v2.0 (Etalab).\n• Enseignes des stations : Chiffrex, « Référentiel des noms et enseignes de stations-service (enrichi par OpenStreetMap) », licence ODbL — © Les contributeurs d\'OpenStreetMap.\n• Distances par la route (si vous utilisez un serveur OSRM) : données © les contributeurs d\'OpenStreetMap (ODbL).\n• Bibliothèques : AndroidX, Material Components, CameraX, kotlinx.coroutines (Apache-2.0).</string>
+    <string name="about_body_data">• Prix des carburants : DGCCRF, publiés sur data.economie.gouv.fr sous Licence Ouverte v2.0 (Etalab).\n• Enseignes des stations : Chiffrex, « Référentiel des noms et enseignes de stations-service (enrichi par OpenStreetMap) », licence ODbL — © Les contributeurs d\'OpenStreetMap.\n• Points de contrôle de vitesse (onglet Vigilance) : ministère de l\'Intérieur, publiés sur data.gouv.fr sous licence LOV2.\n• Géocodage inverse (onglet Vigilance, zone resserrée en agglomération) : Géoplateforme IGN, licence etalab-2.0.\n• Distances par la route (si vous utilisez un serveur OSRM) : données © les contributeurs d\'OpenStreetMap (ODbL).\n• Bibliothèques : AndroidX, Material Components, CameraX, kotlinx.coroutines (Apache-2.0).</string>
     <string name="about_title_support">Soutenir le projet</string>
     <string name="about_body_support">EDC est gratuit et sans publicité. Si l\'app vous est utile, vous pouvez laisser un pourboire, sans obligation : la page s\'ouvre dans votre navigateur, rien n\'est payé depuis l\'app.</string>
     <string name="btn_support">Laisser un pourboire</string>
@@ -70,6 +71,14 @@
     <string name="about_title_dashcam">Dash cam</string>
     <string name="about_body_dashcam">Les vidéos restent sur votre téléphone. Pour un usage strictement personnel, aucune formalité n\'est prévue à ce jour. Ne publiez pas de vidéo où l\'on reconnaît des personnes ou des plaques sans les flouter. Vous restez responsable de l\'usage des enregistrements.</string>
     <string name="status_dashcam_no_notifications">Sans la permission de notifications, l\'état de la dashcam et le rappel de réarmement ne s\'afficheront pas.</string>
+
+    <string name="body_vigilance_legal">Signale une large zone de vigilance (au moins 4 km, resserrée à 500 m en agglomération), jamais la position précise d\'un contrôle — conforme au principe retenu depuis 2012 pour les assistants d\'aide à la conduite. La distance est calculée à vol d\'oiseau depuis votre position : l\'app ne sait pas sur quelle route se trouve le contrôle signalé, ni si c\'est la vôtre — une alerte peut concerner une route parallèle, une bretelle ou le sens opposé de circulation. Voir l\'écran À propos pour le détail des données envoyées. L\'alerte sonore sort du haut-parleur du téléphone, pas forcément des enceintes de la voiture selon votre installation Android Auto.</string>
+    <string name="label_vigilance_sound">Alerte sonore</string>
+    <string name="btn_start_vigilance">DÉMARRER LA VIGILANCE</string>
+    <string name="btn_stop_vigilance">ARRÊTER LA VIGILANCE</string>
+    <string name="status_vigilance_off">Vigilance arrêtée.</string>
+    <string name="status_vigilance_on">Vigilance active.</string>
+    <string name="status_vigilance_no_permission">Sans la localisation, la zone de vigilance ne peut pas fonctionner.</string>
     <string name="status_no_map_app">Aucune application de cartes ne peut ouvrir cette position.</string>
     <string name="dashcam_status_waiting">⏳ Armée — en attente d\'Android Auto, aucun enregistrement</string>
     <string name="dashcam_status_initializing">Initialisation de la caméra…</string>

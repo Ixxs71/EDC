@@ -29,6 +29,10 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
 
+    <!-- Onglet Vigilance (zone de contrôle de vitesse au format légal, voir VigilanceZone.kt) :
+         service de premier plan de type location, avec la seule position approximative. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+
     <application
         android:name=".EdcApplication"
         android:allowBackup="false"
@@ -75,6 +79,11 @@
             android:name=".DashcamService"
             android:exported="false"
             android:foregroundServiceType="camera" />
+
+        <service
+            android:name=".VigilanceService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
 
         <receiver
             android:name=".BootReceiver"

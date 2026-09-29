@@ -1,7 +1,7 @@
 # EDC — Essence + Dash cam
 
 Application Android gratuite et libre (GPL-3.0-or-later), sans publicité, sans compte et sans pistage.
-Version 0.1 — Android 8.0 et plus (testée à ce jour sur un Samsung Galaxy S22+, Android 16 ;
+Version 0.2 — Android 8.0 et plus (testée à ce jour sur un Samsung Galaxy S22+, Android 16 ;
 les versions plus anciennes d'Android n'ont pas encore été essayées).
 
 **La station qui affiche le prix le plus bas n'est pas toujours la moins chère.** Exemple, pour une
@@ -16,7 +16,7 @@ Play, licence GPL-3.0-or-later.
 ## 📱 Aperçu
 
 <p>
-<img src="docs/screenshots/essence.png" width="200" alt="Recherche de stations, onglet Essence"> <img src="docs/screenshots/stations.png" width="200" alt="Classement par coût réel, meilleur choix et prix périmé"> <img src="docs/screenshots/dashcam.png" width="200" alt="Onglet Dash cam"> <img src="docs/screenshots/videos.png" width="200" alt="Liste des vidéos, menu d'un clip"> <img src="docs/screenshots/privacy.png" width="200" alt="Écran À propos, vie privée">
+<img src="docs/screenshots/essence.png" width="200" alt="Recherche de stations, onglet Essence"> <img src="docs/screenshots/stations.png" width="200" alt="Classement par coût réel, meilleur choix et prix périmé"> <img src="docs/screenshots/dashcam.png" width="200" alt="Onglet Dash cam"> <img src="docs/screenshots/videos.png" width="200" alt="Liste des vidéos, menu d'un clip"> <img src="docs/screenshots/vigilance.png" width="200" alt="Onglet Vigilance, zone de contrôle de vitesse"> <img src="docs/screenshots/privacy.png" width="200" alt="Écran À propos, vie privée">
 </p>
 
 ## ⛽ Essence — le coût réel du plein
@@ -38,6 +38,14 @@ L'enregistrement se met en pause si le téléphone chauffe trop, et reprend au r
 manuel, ou automatique à la connexion d'Android Auto. Une liste intégrée montre les clips du plus récent
 au plus ancien, avec lecture et envoi vers une autre application.
 
+## 🚨 Vigilance — zone de contrôle de vitesse
+
+Signale une large zone de vigilance (au moins 4 km, resserrée à 500 m en agglomération repérée) autour
+d'un point de contrôle de vitesse connu — jamais sa position précise, conforme au principe retenu depuis
+2012 pour les assistants d'aide à la conduite (Coyote, Waze...). La distance est calculée à vol d'oiseau
+depuis votre position : l'app ne sait pas sur quelle route se trouve le contrôle signalé, ni si c'est la
+vôtre. Démarrage manuel, ou automatique à la connexion d'Android Auto. Alerte sonore, désactivable.
+
 ## 🔒 Vie privée
 
 **Pas de compte, pas de publicité, pas de statistiques, pas de rapport de plantage envoyé.** Le détail :
@@ -50,6 +58,10 @@ au plus ancien, avec lecture et envoi vers une autre application.
   sont envoyées. Aucun serveur n'est imposé : l'instance de démonstration du projet OSRM est réservée à un
   usage raisonnable non commercial et ne convient pas à une application diffusée.
 - Le référentiel des enseignes est téléchargé sur `data.gouv.fr`, sans position.
+- Pendant que l'onglet Vigilance tourne, votre position arrondie est envoyée de temps en temps (au plus
+  toutes les 2 minutes, ou si vous avez bougé de plus d'1 km) au service de géocodage de l'IGN
+  (`data.geopf.fr`), uniquement pour resserrer la zone signalée en agglomération. Aucune adresse ni aucun
+  résultat ne vous est montré.
 - Votre position est obtenue par le service de localisation d'Android : aucune bibliothèque Google n'est
   embarquée. Selon votre téléphone et vos réglages, ce service peut s'appuyer sur des services Google.
 - Un journal local (`events.log` : démarrages et arrêts de la dashcam, fournisseur de localisation utilisé)
@@ -71,7 +83,7 @@ au plus ancien, avec lecture et envoi vers une autre application.
 | Caméra | Dash cam. Aucun micro n'est demandé. |
 | Notifications | Statut de l'enregistrement, et notification « Dashcam désarmée » après un redémarrage ou une mise à jour. Demandée au démarrage de la dashcam ; sans elle, ces notifications ne s'affichent pas. |
 | Réception du démarrage | Prévenir que la dashcam doit être relancée après un redémarrage ou une mise à jour. |
-| Service de premier plan (caméra), Internet, état du réseau | Enregistrer avec l'écran éteint ; interroger les données ci-dessous. |
+| Service de premier plan (caméra, localisation), Internet, état du réseau | Enregistrer ou surveiller avec l'écran éteint ; interroger les données ci-dessous. |
 
 ## Sources de données et licences
 
@@ -79,6 +91,10 @@ au plus ancien, avec lecture et envoi vers une autre application.
   [Licence Ouverte v2.0 (Etalab)](https://www.etalab.gouv.fr/licence-ouverte-open-licence/).
 - Enseignes des stations : « Référentiel des noms et enseignes de stations-service (enrichi par
   OpenStreetMap) », Chiffrex, sous licence ODbL — © Les contributeurs d'OpenStreetMap.
+- Points de contrôle de vitesse (onglet Vigilance) : ministère de l'Intérieur, publiés sur
+  `data.gouv.fr` sous licence LOV2.
+- Géocodage inverse (onglet Vigilance, zone resserrée en agglomération) :
+  [Géoplateforme IGN](https://data.geopf.fr/), licence etalab-2.0.
 - Distances par la route, si vous utilisez un serveur [OSRM](https://project-osrm.org/) : données © les
   contributeurs d'OpenStreetMap (ODbL).
 - Bibliothèques : AndroidX, Material Components, CameraX, kotlinx.coroutines (Apache-2.0).

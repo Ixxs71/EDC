@@ -18,8 +18,8 @@ android {
         applicationId = "fr.edcapp.essencecam"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
-        versionName = "0.1"
+        versionCode = 2
+        versionName = "0.2"
 
         // Aucun serveur de routage par défaut : distances estimées, sauf serveur OSRM saisi par l'utilisateur.
         buildConfigField("String", "DEFAULT_ROUTING_SERVER", "\"\"")

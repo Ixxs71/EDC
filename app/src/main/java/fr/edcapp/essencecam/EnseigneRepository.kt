@@ -115,7 +115,7 @@ object EnseigneRepository {
     }
 
     /** Parseur CSV minimal : gère les champs entre guillemets, sans dépendance externe. */
-    private fun parseCsvLine(line: String): List<String> {
+    internal fun parseCsvLine(line: String): List<String> {
         val fields = mutableListOf<String>()
         val current = StringBuilder()
         var inQuotes = false

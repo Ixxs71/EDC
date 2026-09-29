@@ -63,6 +63,13 @@
             android:layout_height="wrap_content"
             android:text="@string/tab_dashcam" />
 
+        <!-- Retiré au démarrage si EditionHooks.showsVigilanceTab() vaut false : garder les trois
+             TabItem dans le même layout commun évite une deuxième copie du fichier. -->
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_vigilance" />
+
     </com.google.android.material.tabs.TabLayout>
 
     <FrameLayout

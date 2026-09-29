@@ -18,9 +18,12 @@ class DecimalDigitsInputFilter(maxDecimalDigits: Int) : InputFilter {
         dstart: Int,
         dend: Int,
     ): CharSequence? {
-        val proposed = dest.toString().substring(0, dstart) +
-            source.subSequence(start, end) +
-            dest.toString().substring(dend)
-        return if (proposed.isEmpty() || pattern.matches(proposed)) null else ""
+        return if (isAllowed(dest.toString(), dstart, dend, source.subSequence(start, end))) null else ""
+    }
+
+    /** Le texte obtenu en remplaçant [dstart, dend) de [current] par [insert] est-il acceptable ? */
+    internal fun isAllowed(current: String, dstart: Int, dend: Int, insert: CharSequence): Boolean {
+        val proposed = current.substring(0, dstart) + insert + current.substring(dend)
+        return proposed.isEmpty() || pattern.matches(proposed)
     }
 }
