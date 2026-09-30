@@ -1,8 +1,10 @@
-# EDC — Essence + Dash cam
+# EDC
 
-Application Android gratuite et libre (GPL-3.0-or-later), sans publicité, sans compte et sans pistage.
-Version 0.2 — Android 8.0 et plus (testée à ce jour sur un Samsung Galaxy S22+, Android 16 ;
-les versions plus anciennes d'Android n'ont pas encore été essayées).
+**Essence au coût réel · Dashcam · Vigilance — libre, gratuit, sans publicité.**
+
+*Essence + Dash cam*, à l'origine — GPL-3.0-or-later, sans compte ni pistage. Version 0.2 —
+Android 8.0 et plus (testée à ce jour sur un Samsung Galaxy S22+, Android 16 ; les versions plus anciennes
+d'Android n'ont pas encore été essayées).
 
 **La station qui affiche le prix le plus bas n'est pas toujours la moins chère.** Exemple, pour une
 consommation de 7 L/100 km et un plein de 50 L : une station à 1,789 €/L à 8 km, une autre à 1,799 €/L à
